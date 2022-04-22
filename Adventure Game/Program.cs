@@ -17,7 +17,7 @@ namespace Adventure_Game
     public static class Game 
     {
         //character name
-        static string characterName = "John Doe";
+        static string characterName = "";
 
         //print out game title and overview
         public static void StartGame()
@@ -28,6 +28,7 @@ namespace Adventure_Game
             Console.WriteLine("Adventure Game!");
             Console.WriteLine("Welcome to your Adventure");
             NameCharacter();
+            
             }
 
         //ask player for a name, and save it
@@ -40,8 +41,16 @@ namespace Adventure_Game
                  characterName = Console.ReadLine();
 
                  Console.WriteLine("Great! Your character is now named " + characterName + "!");
-                 Console.ReadKey();
             }
+        static void Dialog(string message)
+        {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(message);
+                Console.ResetColor();
+            Console.WriteLine("A stranger approaches. Clearing their throat to get your attention, they ask \n");
+            Dialog("Have you seen a strange creature around here?\nAbout three feet high, greenish, with fluffy hair?\n");
+            Console.WriteLine("How do you answer? 1) Yes, 2) No, Repeat the question, 4) Keep walking");
+        }
     }
     class Item 
     {
@@ -51,7 +60,7 @@ namespace Adventure_Game
         static void Main()
         {
             Game.StartGame();
-            Console.ReadKey();
+            Console.Read();
 
             
 
